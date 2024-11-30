@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Refit" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ScoreWorker.DB\ScoreWorker.DB.csproj" />
+    <ProjectReference Include="..\ScoreWorker.Models.Db\ScoreWorker.Models.Db.csproj" />
+    <ProjectReference Include="..\ScoreWorker.Models.Exceptions\ScoreWorker.Models.Exceptions.csproj" />
+    <ProjectReference Include="..\ScoreWorker.Models\ScoreWorker.Models.csproj" />
+    <ProjectReference Include="..\ScoreWorker.Prompt\ScoreWorker.PromptHelpers.csproj" />
+    <ProjectReference Include="..\ScoreWorker.RefitApi\ScoreWorker.RefitApi.csproj" />
+  </ItemGroup>
+
+</Project>
