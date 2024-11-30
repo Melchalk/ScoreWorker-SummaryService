@@ -1,6 +1,0 @@
-@ScoreWorker_SummaryService_HostAddress = http://localhost:5241
-
-GET {{ScoreWorker_SummaryService_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
