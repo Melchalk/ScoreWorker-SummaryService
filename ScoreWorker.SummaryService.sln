@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummaryService.Broker", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummaryService.Business", "src\SummaryService.Business\SummaryService.Business.csproj", "{4EDE90CB-AB43-43A1-8815-F08995EB935B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummaryService.Data.Provider", "src\SummaryService.Data.Provider\SummaryService.Data.Provider.csproj", "{EC754E4A-D2C9-479D-88A3-3DC2F2834A96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{4EDE90CB-AB43-43A1-8815-F08995EB935B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EDE90CB-AB43-43A1-8815-F08995EB935B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EDE90CB-AB43-43A1-8815-F08995EB935B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC754E4A-D2C9-479D-88A3-3DC2F2834A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC754E4A-D2C9-479D-88A3-3DC2F2834A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC754E4A-D2C9-479D-88A3-3DC2F2834A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC754E4A-D2C9-479D-88A3-3DC2F2834A96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
