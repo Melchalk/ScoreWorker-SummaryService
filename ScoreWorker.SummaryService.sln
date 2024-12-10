@@ -19,6 +19,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummaryService.Business", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummaryService.Data.Provider", "src\SummaryService.Data.Provider\SummaryService.Data.Provider.csproj", "{EC754E4A-D2C9-479D-88A3-3DC2F2834A96}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{054E5574-BC07-4B31-8164-BDC4263C12D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{D1C74E7A-871F-4B9A-B765-D3F48199DA6F}"
+	ProjectSection(SolutionItems) = preProject
+		src\SummaryService\Dockerfile = src\SummaryService\Dockerfile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +67,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D53FA101-C6BC-41A3-B9A8-E81C5823426C} = {054E5574-BC07-4B31-8164-BDC4263C12D3}
+		{2AAD4DD9-67E1-46E4-8DF9-52026433694C} = {054E5574-BC07-4B31-8164-BDC4263C12D3}
+		{93977E48-CA37-4ACE-95D9-21254F63812C} = {054E5574-BC07-4B31-8164-BDC4263C12D3}
+		{CA35F5DA-2F51-474A-B86C-80D7BAC52226} = {054E5574-BC07-4B31-8164-BDC4263C12D3}
+		{C7FE08CB-DD7A-4D76-8BE9-8F5852CC42A7} = {054E5574-BC07-4B31-8164-BDC4263C12D3}
+		{B4BD3354-8170-40ED-B6C4-30314B3BB2C2} = {054E5574-BC07-4B31-8164-BDC4263C12D3}
+		{4EDE90CB-AB43-43A1-8815-F08995EB935B} = {054E5574-BC07-4B31-8164-BDC4263C12D3}
+		{EC754E4A-D2C9-479D-88A3-3DC2F2834A96} = {054E5574-BC07-4B31-8164-BDC4263C12D3}
 	EndGlobalSection
 EndGlobal

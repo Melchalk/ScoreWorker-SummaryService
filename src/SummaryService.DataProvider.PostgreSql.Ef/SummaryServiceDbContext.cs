@@ -5,7 +5,8 @@ using System.Reflection;
 
 namespace SummaryService.DataProvider.PostgreSql.Ef;
 
-public class SummaryServiceDbContext(DbContextOptions<SummaryServiceDbContext> options) : DbContext(options), IDataProvider
+public class SummaryServiceDbContext(DbContextOptions<SummaryServiceDbContext> options)
+    : DbContext(options), IDataProvider
 {
     public DbSet<DbSummary> Summary { get; set; }
     public DbSet<DbScoreCriteria> ScoreCriteria { get; set; }
