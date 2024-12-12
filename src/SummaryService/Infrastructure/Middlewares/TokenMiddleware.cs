@@ -7,8 +7,9 @@ public class TokenMiddleware(RequestDelegate next)
 {
     private const string ErrorMessage = "Token validation is failed.";
 
-    public async Task InvokeAsync(HttpContext context, IAuthService authService)
+    public async Task InvokeAsync(HttpContext context)
     {
+        /*
         if (string.Equals(context.Request.Method, "OPTIONS", StringComparison.OrdinalIgnoreCase) ||
             context.Request.Path.StartsWithSegments(new PathString("/swagger")))
         {
@@ -51,6 +52,6 @@ public class TokenMiddleware(RequestDelegate next)
 
         context.Items[HttpContextHelper.Login] = login;
 
-        await next(context);
+        await next(context);*/
     }
 }

@@ -1,4 +1,4 @@
-namespace SummaryService.Data;
+namespace SummaryService.Data.Provider;
 
 /// <summary>
 /// Data provider with provider extra methods.

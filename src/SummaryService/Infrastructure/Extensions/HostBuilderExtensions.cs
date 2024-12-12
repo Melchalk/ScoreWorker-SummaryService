@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using Pro.Pricer.Infrastructure.StartupFilters;
 using Serilog;
 using SummaryService.Infrastructure.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;

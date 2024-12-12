@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SummaryService.Models.Db;
 
-namespace SummaryService.Data;
+namespace SummaryService.Data.Provider;
 
 /// <summary>
 /// Data provider with DbSets of the app.

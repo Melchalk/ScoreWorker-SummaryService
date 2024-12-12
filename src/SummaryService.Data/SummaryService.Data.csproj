@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SummaryService.Data.Provider\SummaryService.Data.Provider.csproj" />
     <ProjectReference Include="..\SummaryService.Models.Db\SummaryService.Models.Db.csproj" />
   </ItemGroup>
 

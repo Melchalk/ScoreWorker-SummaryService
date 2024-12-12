@@ -1,5 +1,5 @@
 ﻿namespace SummaryService.Business.Summary.Interfaces;
 
-public interface IGetFullSummaryCommand
+public interface IGetFullReportCommand
 {
 }

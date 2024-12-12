@@ -2,6 +2,6 @@
 
 namespace SummaryService.Business.Summary;
 
-public class GetFullSummaryCommand : IGetFullSummaryCommand
+public class GetFullReportCommand : IGetFullReportCommand
 {
 }

@@ -1,7 +1,13 @@
 ﻿using AutoMapper;
+using MassTransit;
+using MassTransit.ExtensionsDependencyInjectionIntegration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using SummaryService.Business.Summary;
+using SummaryService.Business.Summary.Interfaces;
 using SummaryService.Data;
+using SummaryService.Data.Interfaces;
+using SummaryService.Data.Provider;
 using SummaryService.DataProvider.PostgreSql.Ef;
 using SummaryService.Infrastructure.Mapper;
 using SummaryService.Infrastructure.Middlewares;
@@ -38,6 +44,8 @@ internal class Startup(IConfiguration configuration)
 
         ConfigureDI(services);
 
+        //ConfigureMassTransit(services);
+
         services.AddEndpointsApiExplorer();
 
         services.AddHttpContextAccessor();
@@ -68,9 +76,43 @@ internal class Startup(IConfiguration configuration)
         });
     }
 
+    private void ConfigureMassTransit(IServiceCollection services)
+    {
+        ConfigurePublishers(services);
+
+        services.AddMassTransit(busConfigurator =>
+        {
+            busConfigurator.UsingRabbitMq((context, cfg) =>
+            {
+                cfg.Host("localhost");
+                cfg.ConfigureEndpoints(context);
+            });
+
+            ConfigureConsumers(busConfigurator);
+        });
+    }
+
+    private void ConfigurePublishers(IServiceCollection services)
+    {
+        //services.AddScoped<IMessagePublisher<CreateLibraryRequest, CreateLibraryResponse>, CreateLibraryMessagePublisher>();
+    }
+
+    private void ConfigureConsumers(IServiceCollectionBusConfigurator x)
+    {
+        //x.AddConsumer<>();
+    }
+
     private void ConfigureDI(IServiceCollection services)
     {
         services.AddScoped<IDataProvider, SummaryServiceDbContext>();
+
+        services.AddScoped<ISummaryRepository, SummaryRepository>();
+
+        services.AddScoped<ICreateSummaryCommand, CreateSummaryCommand>();
+        services.AddScoped<IDeleteSummaryCommand, DeleteSummaryCommand>();
+        services.AddScoped<IGetFullReportCommand, GetFullReportCommand>();
+        services.AddScoped<IGetSummaryCommand, GetSummaryCommand>();
+        services.AddScoped<IUpdateSummaryCommand, UpdateSummaryCommand>();
     }
 
     private void UpdateDatabase(IApplicationBuilder app)

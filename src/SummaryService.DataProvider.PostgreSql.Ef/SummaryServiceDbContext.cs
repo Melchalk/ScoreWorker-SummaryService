@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using SummaryService.Data;
+using SummaryService.Data.Provider;
 using SummaryService.Models.Db;
 using System.Reflection;
 
