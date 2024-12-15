@@ -32,7 +32,8 @@ internal class Startup(IConfiguration configuration)
 
         services.AddDbContext<SummaryServiceDbContext>(options =>
         {
-            options.UseNpgsql(Configuration.GetConnectionString("SQLConnectionString"));
+            options.UseNpgsql(Configuration.GetConnectionString("SQLConnectionString"),
+                b => b.MigrationsAssembly(typeof(SummaryServiceDbContext).Assembly.FullName));
         });
 
         services.AddSingleton(new MapperConfiguration(mc =>
@@ -105,6 +106,7 @@ internal class Startup(IConfiguration configuration)
     private void ConfigureDI(IServiceCollection services)
     {
         services.AddScoped<IDataProvider, SummaryServiceDbContext>();
+        services.AddScoped<DbContext, SummaryServiceDbContext>();
 
         services.AddScoped<ISummaryRepository, SummaryRepository>();
 

@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SummaryService.Models.Dto\SummaryService.Models.Dto.csproj" />
+  </ItemGroup>
+
 </Project>
