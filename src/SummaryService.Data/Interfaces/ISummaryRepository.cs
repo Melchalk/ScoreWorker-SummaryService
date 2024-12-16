@@ -4,8 +4,8 @@ namespace SummaryService.Data.Interfaces;
 
 public interface ISummaryRepository
 {
-    Task<DbSummary> GetAsync(Guid id);
-    Task CreateAsync(DbSummary dbSummary);
-    Task UpdateAsync(DbSummary dbSummary);
-    Task DeleteAsync(Guid id);
+    Task<DbSummary?> GetAsync(Guid id, CancellationToken cancellationToken));
+    Task CreateAsync(DbSummary dbSummary, CancellationToken cancellationToken));
+    Task<bool> UpdateAsync(DbSummary dbSummary, CancellationToken cancellationToken));
+    Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken));
 }

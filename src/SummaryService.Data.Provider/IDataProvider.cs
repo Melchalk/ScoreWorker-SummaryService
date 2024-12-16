@@ -8,7 +8,7 @@ namespace SummaryService.Data.Provider;
 /// </summary>
 public interface IDataProvider : IBaseDataProvider
 {
-    DbSet<DbSummary> Summary { get; set; }
+    DbSet<DbSummary> Summaries { get; set; }
     DbSet<DbScoreCriteria> ScoreCriteria { get; set; }
     DbSet<DbStatistics> Statistics { get; set; }
 }

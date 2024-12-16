@@ -1,4 +1,5 @@
-﻿using SummaryService.Data.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using SummaryService.Data.Interfaces;
 using SummaryService.Data.Provider;
 using SummaryService.Models.Db;
 
@@ -6,23 +7,43 @@ namespace SummaryService.Data;
 
 public class SummaryRepository(IDataProvider provider) : ISummaryRepository
 {
-    public Task CreateAsync(DbSummary dbSummary)
+    public async Task CreateAsync(
+        DbSummary dbSummary, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await provider.Summaries.AddAsync(dbSummary, cancellationToken);
+
+        await provider.SaveAsync(cancellationToken);
     }
 
-    public Task DeleteAsync(Guid id)
+    public async Task<bool> DeleteAsync(
+        Guid id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var dbSummary = await provider.Summaries
+            .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+
+        if (dbSummary is null)
+            return false;
+
+        provider.Summaries.Remove(dbSummary);
+
+        await provider.SaveAsync(cancellationToken);
+
+        return true;
     }
 
-    public Task<DbSummary> GetAsync(Guid id)
+    public async Task<DbSummary?> GetAsync(
+        Guid id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await provider.Summaries
+            .AsNoTracking()
+            .FirstOrDefaultAsync(r => r.Id == id, cancellationToken);
     }
 
-    public Task UpdateAsync(DbSummary dbSummary)
+    public async Task<bool> UpdateAsync(
+        DbSummary dbSummary, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await provider.SaveAsync(cancellationToken);
+
+        return true;
     }
 }
