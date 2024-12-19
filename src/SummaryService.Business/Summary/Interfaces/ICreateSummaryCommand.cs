@@ -5,5 +5,5 @@ namespace SummaryService.Business.Summary.Interfaces;
 
 public interface ICreateSummaryCommand
 {
-    Task<ResponseInfo<bool>> ExecuteAsync(CreateSummaryRequest request, CancellationToken cancellationToken);
+    Task<ResponseInfo<Guid>> ExecuteAsync(CreateSummaryRequest request, CancellationToken cancellationToken);
 }

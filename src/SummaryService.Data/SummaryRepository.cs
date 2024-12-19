@@ -7,12 +7,14 @@ namespace SummaryService.Data;
 
 public class SummaryRepository(IDataProvider provider) : ISummaryRepository
 {
-    public async Task CreateAsync(
+    public async Task<Guid> CreateAsync(
         DbSummary dbSummary, CancellationToken cancellationToken)
     {
         await provider.Summaries.AddAsync(dbSummary, cancellationToken);
 
         await provider.SaveAsync(cancellationToken);
+
+        return dbSummary.Id;
     }
 
     public async Task<bool> DeleteAsync(

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SummaryService.Data\SummaryService.Data.csproj" />
     <ProjectReference Include="..\SummaryService.Models.Dto\SummaryService.Models.Dto.csproj" />
   </ItemGroup>

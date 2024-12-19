@@ -1,16 +1,29 @@
-﻿using SummaryService.Business.Summary.Interfaces;
+﻿using AutoMapper;
+using SummaryService.Business.Summary.Interfaces;
 using SummaryService.Data.Interfaces;
+using SummaryService.Models.Db;
 using SummaryService.Models.Dto.Requests;
 using SummaryService.Models.Dto.Responses;
+using System.Net;
 
 namespace SummaryService.Business.Summary;
 
-public class CreateSummaryCommand(ISummaryRepository repository) : ICreateSummaryCommand
+public class CreateSummaryCommand(
+    IMapper mapper,
+    ISummaryRepository repository) : ICreateSummaryCommand
 {
-    public Task<ResponseInfo<bool>> ExecuteAsync(
+    public async Task<ResponseInfo<Guid>> ExecuteAsync(
         CreateSummaryRequest request,
         CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var summary = mapper.Map<DbSummary>(request);
+
+        var result = await repository.CreateAsync(summary, cancellationToken);
+
+        return new ResponseInfo<Guid>
+        {
+            Body = result,
+            Status = (int)HttpStatusCode.Created
+        };
     }
 }
